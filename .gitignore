@@ -1,0 +1,14 @@
+.venv/
+out/
+__pycache__/
+*.pyc
+*.class
+
+# Artefatos gerados localmente
+P3_*.pdf
+P3_*.zip
+
+# Saidas de execucao que podem ser recriadas
+Q2/outputs/
+Q3/outputs/
+Q3/instancias/*.txt

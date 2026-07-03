@@ -1,0 +1,38 @@
+Questao 3 - Mochila 0/1
+
+Semente usada: 466473
+Instancias geradas: pesos inteiros em [1, 100], valores inteiros em [1, 500] e capacidade floor(0,5 * soma dos pesos).
+
+Algoritmo genetico:
+- representacao: vetor booleano por item
+- fitness: valor - penalidade * excesso de peso
+- selecao: torneio
+- cruzamento: ponto unico
+- mutacao: troca de bit
+- duas configuracoes executadas
+
+instancia_20: n=20, capacidade=466
+instancia_50: n=50, capacidade=1250
+knapPI_1_100_1000_1: n=100, capacidade=995
+
+Referencia otima para instancia_20: 3878
+  Guloso razao: valor=3878, peso=451
+  Guloso valor: valor=3454, peso=466
+  GA A: melhor valor=3878
+  GA B: melhor valor=3878
+  DP: valor=3878
+
+Referencia otima para instancia_50: 10693
+  Guloso razao: valor=10693, peso=1239
+  Guloso valor: valor=10234, peso=1239
+  GA A: melhor valor=10693
+  GA B: melhor valor=10693
+  DP: valor=10693
+
+Referencia otima para knapPI_1_100_1000_1: 9147
+  Guloso razao: valor=8817, peso=908
+  Guloso valor: valor=5429, peso=972
+  GA A: melhor valor=9147
+  GA B: melhor valor=7363
+  DP: valor=9147
+
