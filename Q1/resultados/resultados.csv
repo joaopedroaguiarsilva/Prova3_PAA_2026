@@ -1,0 +1,5 @@
+S,n,teste,linha,coluna,casa_inicial,estrategia,solucao,chamadas,tentativas,backtracks,tempo_ms
+466473,5,"principal",4,5,"(4,5)","Backtracking puro","NAO",1829421,1829420,1829420,104
+466473,5,"principal",4,5,"(4,5)","Warnsdorff","NAO",1829421,1829420,1829420,270
+466473,6,"principal",4,4,"(4,4)","Backtracking puro","SIM",577655,577654,577619,28
+466473,6,"principal",4,4,"(4,4)","Warnsdorff","SIM",63,62,27,0
