@@ -5,7 +5,7 @@ from reportlab.lib.enums import TA_CENTER
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import cm
-from reportlab.platypus import PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+from reportlab.platypus import Image, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 
 ROOT = Path(__file__).resolve().parent
@@ -36,6 +36,16 @@ def add_table(story, headers, rows, col_widths=None):
     story.append(Spacer(1, 0.35 * cm))
 
 
+def add_figure(story, styles, image_path, caption, width=16.5 * cm):
+    img = Image(str(image_path))
+    ratio = img.imageHeight / img.imageWidth
+    img.drawWidth = width
+    img.drawHeight = width * ratio
+    story.append(Paragraph(caption, styles["SubSection"]))
+    story.append(img)
+    story.append(Spacer(1, 0.35 * cm))
+
+
 def main():
     doc = SimpleDocTemplate(
         str(OUTPUT),
@@ -54,18 +64,18 @@ def main():
 
     story = []
 
-    story.append(Paragraph("P3 - Projeto e Analise de Algoritmos", styles["TitleCenter"]))
+    story.append(Paragraph("P3 - Projeto e Análise de Algoritmos", styles["TitleCenter"]))
     story.append(Paragraph("Semente da dupla: 466473", styles["BodySmall"]))
-    story.append(Paragraph("Joao Pedro Aguiar Silva - 0083466 | Victor Lopes Teodoro - 0083473", styles["BodySmall"]))
+    story.append(Paragraph("João Pedro Aguiar Silva - 0083466 | Victor Lopes Teodoro - 0083473", styles["BodySmall"]))
     story.append(Spacer(1, 0.2 * cm))
 
-    story.append(Paragraph("Questao 2 - Subsequencia Crescente", styles["Section"]))
-    story.append(Paragraph("Recorrencia: best[i] = 1 + max(best[j]) para j > i e v[j] > v[i], ou 1 se nao existir tal j. O vetor next guarda o proximo indice de uma subsequencia otima a partir de cada posicao.", styles["BodySmall"]))
-    story.append(Paragraph("Vetor inicial: [32, 19, 32, 17, 31, 43, 30, 29, 54, 16, 28, 66, 15, 41, 65, 14, 50]", styles["BodySmall"]))
-    story.append(Paragraph("Resultado inicial: best = [4, 5, 4, 5, 4, 3, 3, 3, 2, 4, 3, 1, 3, 2, 1, 2, 1]", styles["BodySmall"]))
+    story.append(Paragraph("Questão 2 - Subsequência Crescente", styles["Section"]))
+    story.append(Paragraph("Recorrência: best[i] = 1 + max(best[j]) para j > i e v[j] > v[i], ou 1 se não existir tal j. O vetor next guarda o próximo índice de uma subsequência ótima a partir de cada posição.", styles["BodySmall"]))
+    story.append(Paragraph("v = [32, 19, 32, 17, 31, 43, 30, 29, 54, 16, 28, 66, 15, 41, 65, 14, 50]", styles["BodySmall"]))
+    story.append(Paragraph("best = [4, 5, 4, 5, 4, 3, 3, 3, 2, 4, 3, 1, 3, 2, 1, 2, 1]", styles["BodySmall"]))
     story.append(Paragraph("next = [6, 3, 6, 5, 6, 9, 9, 9, 12, 11, 14, 0, 14, 15, 0, 17, 0]", styles["BodySmall"]))
-    story.append(Paragraph("Maior subsequencia crescente: 5 | Exemplo encontrado: [19, 32, 43, 54, 66]", styles["BodySmall"]))
-    story.append(Paragraph("As sequencias de teste foram geradas com Random(466473) no intervalo [1, 10000].", styles["BodySmall"]))
+    story.append(Paragraph("Maior subsequência crescente: 5 | Exemplo encontrado: [19, 32, 43, 54, 66]", styles["BodySmall"]))
+    story.append(Paragraph("As sequências de teste foram geradas com Random(466473) e os primeiros n inteiros no intervalo [1, 10000].", styles["BodySmall"]))
 
     add_table(
         story,
@@ -81,9 +91,12 @@ def main():
         [2 * cm, 3.2 * cm, 2.4 * cm, 3 * cm],
     )
 
-    story.append(Paragraph("Questao 3 - Mochila 0/1", styles["Section"]))
-    story.append(Paragraph("Instancias: 20 itens, 50 itens e a instancia oficial knapPI_1_100_1000_1. Metodos: guloso por razao, guloso por valor, AG com duas configuracoes e DP exata como referencia.", styles["BodySmall"]))
-    story.append(Paragraph("Configuracoes do AG: A = pop 80, 250 geracoes, mutacao 0.02, torneio 3, elitismo 2, penalidade 1000; B = pop 120, 320 geracoes, mutacao 0.05, torneio 4, elitismo 4, penalidade 2000.", styles["BodySmall"]))
+    add_figure(story, styles, ROOT / "Q2" / "outputs" / "q2_comparacoes.png", "Gráfico 1 - Número de comparações por tamanho da sequência")
+    add_figure(story, styles, ROOT / "Q2" / "outputs" / "q2_tempo.png", "Gráfico 2 - Tempo por tamanho da sequência")
+
+    story.append(Paragraph("Questão 3 - Mochila 0/1", styles["Section"]))
+    story.append(Paragraph("Instâncias: 20 itens, 50 itens e a instância oficial knapPI_1_100_1000_1. Métodos: guloso por razão, guloso por valor, AG com duas configurações e DP exata como referência.", styles["BodySmall"]))
+    story.append(Paragraph("Configurações do AG: A = pop 80, 250 gerações, mutação 0.02, torneio 3, elitismo 2, penalidade 1000; B = pop 120, 320 gerações, mutação 0.05, torneio 4, elitismo 4, penalidade 2000.", styles["BodySmall"]))
 
     story.append(Paragraph("Resumo por instancia", styles["SubSection"]))
     add_table(
@@ -97,9 +110,13 @@ def main():
         [3.1 * cm, 2.0 * cm, 2.3 * cm, 2.3 * cm, 2.0 * cm, 2.0 * cm],
     )
 
-    story.append(Paragraph("Analise: o guloso por razao foi melhor que o guloso por valor em todas as instancias. O AG com a configuracao A atingiu o otimo nas tres instancias. A configuracao B foi melhor que os gulosos, mas ficou abaixo do otimo na instancia oficial. A DP forneceu a referencia exata.", styles["BodySmall"]))
-    story.append(Paragraph("Reflexao final: a questao que exigiu mais esforco foi a Mochila 0/1, o resultado empirico mais marcante foi a diferenca entre os dois gulosos na instancia oficial e a principal melhoria futura seria refinar o AG com mais testes de parametros e um reparo de individuos mais forte.", styles["BodySmall"]))
-    story.append(Paragraph("Uso de IA: apoio na organizacao da estrutura, aceleracao da implementacao inicial e revisao de consistencia dos resultados.", styles["BodySmall"]))
+    add_figure(story, styles, ROOT / "Q3" / "outputs" / "instancia_20_ga.png", "Gráfico 3 - AG na instância instancia_20")
+    add_figure(story, styles, ROOT / "Q3" / "outputs" / "instancia_50_ga.png", "Gráfico 4 - AG na instância instancia_50")
+    add_figure(story, styles, ROOT / "Q3" / "outputs" / "knapPI_1_100_1000_1_ga.png", "Gráfico 5 - AG na instância knapPI_1_100_1000_1")
+
+    story.append(Paragraph("Análise: o guloso por razão foi melhor que o guloso por valor em todas as instâncias. O AG com a configuração A atingiu o ótimo nas três instâncias. A configuração B ficou abaixo do ótimo na instância oficial, mas ainda acima dos gulosos. A DP deu a referência exata e foi viável nas instâncias testadas.", styles["BodySmall"]))
+    story.append(Paragraph("Reflexão final: a questão que exigiu mais esforço foi a Mochila 0/1, o resultado empírico mais marcante foi a diferença entre os dois gulosos na instância oficial e a principal melhoria futura seria refinar o AG com mais testes de parâmetros e um reparo de indivíduos mais forte.", styles["BodySmall"]))
+    story.append(Paragraph("Uso de IA: apoio para organizar o código, revisar o relatório e ajudar na montagem dos scripts e tabelas.", styles["BodySmall"]))
 
     doc.build(story)
     print(f"PDF gerado em: {OUTPUT}")

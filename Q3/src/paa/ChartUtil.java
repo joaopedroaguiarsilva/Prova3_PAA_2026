@@ -74,12 +74,6 @@ public final class ChartUtil {
         maxX += xPadding;
         minY -= yPadding;
         maxY += yPadding;
-        if (minX > 0.0) {
-            minX = 0.0;
-        }
-        if (minY > 0.0) {
-            minY = 0.0;
-        }
 
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g = image.createGraphics();

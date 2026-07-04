@@ -1,4 +1,4 @@
-# P3 - Projeto e Analise de Algoritmos
+# P3 - Projeto e Análise de Algoritmos
 
 Semente da dupla: **466473**
 
@@ -7,34 +7,34 @@ Integrantes:
 - Joao Pedro Aguiar Silva - 0083466
 - Victor Lopes Teodoro - 0083473
 
-## Questao 2 - Subsequencia Crescente
+## Questão 2 - Subsequência Crescente
 
-### Recorrencia
+### Recorrência
 
-Foi usada a formulacao reversa da subsequencia crescente:
+Usamos a formulação reversa da subsequência crescente:
 
 $$
 best[i] = 1 + \max(best[j]) \text{ para } j > i \text{ e } v[j] > v[i],
 $$
 
-com $best[i] = 1$ quando nao existe $j$ valido. O vetor $next$ guarda o proximo indice de uma subsequencia otima a partir de cada posicao.
+com $best[i] = 1$ quando não existe $j$ válido. O vetor $next$ guarda o próximo índice de uma subsequência ótima a partir de cada posição.
 
-### Sequencia inicial
+### Sequência inicial
 
-\[32, 19, 32, 17, 31, 43, 30, 29, 54, 16, 28, 66, 15, 41, 65, 14, 50\]
+v = [32, 19, 32, 17, 31, 43, 30, 29, 54, 16, 28, 66, 15, 41, 65, 14, 50]
 
-### Resultado da instancia inicial
+### Resultado da instância inicial
 
 - `best = [4, 5, 4, 5, 4, 3, 3, 3, 2, 4, 3, 1, 3, 2, 1, 2, 1]`
 - `next = [6, 3, 6, 5, 6, 9, 9, 9, 12, 11, 14, 0, 14, 15, 0, 17, 0]`
-- tamanho da maior subsequencia crescente: **5**
-- uma subsequencia maxima encontrada: **[19, 32, 43, 54, 66]**
+- tamanho da maior subsequência crescente: **5**
+- uma subsequência máxima encontrada: **[19, 32, 43, 54, 66]**
 
-### Sequencias geradas com a semente
+### Sequências geradas com a semente
 
-Para `n = 100, 250, 500, 1000, 2000, 4000`, foi usado `Random(466473)` e os primeiros `n` inteiros no intervalo `[1, 10000]`.
+Para `n = 100, 250, 500, 1000, 2000, 4000`, usamos `Random(466473)` e geramos os primeiros `n` inteiros no intervalo `[1, 10000]`.
 
-### Medicoes
+### Medições
 
 | n | comparacoes | tempo_ms | tamanho LIS |
 |---:|---:|---:|---:|
@@ -45,29 +45,29 @@ Para `n = 100, 250, 500, 1000, 2000, 4000`, foi usado `Random(466473)` e os prim
 | 2000 | 1999000 | 16 | 84 |
 | 4000 | 7998000 | 44 | 121 |
 
-### Analise
+### Análise
 
-As comparacoes cresceram de forma quadratica, como esperado para a DP $O(n^2)$. O tempo observou tendencia semelhante, mas com pequenas variacoes de ambiente. O tamanho da LIS cresceu com a entrada, sem alterar a ordem de complexidade.
+As comparações cresceram de forma quadrática, como esperado para a DP $O(n^2)$. O tempo seguiu a mesma tendência, com pequenas variações de ambiente. O tamanho da LIS cresceu com a entrada, sem mudar a ordem de complexidade.
 
-## Questao 3 - Mochila 0/1
+## Questão 3 - Mochila 0/1
 
-### Instancias
+### Instâncias
 
 - `instancia_20`: 20 itens, capacidade 466
 - `instancia_50`: 50 itens, capacidade 1250
 - `knapPI_1_100_1000_1`: 100 itens, capacidade 995
 
-### Metodos
+### Métodos
 
-- Guloso por maior razao valor/peso
+- Guloso por maior razão valor/peso
 - Guloso por maior valor absoluto
-- Algoritmo genetico com duas configuracoes
-- Programacao dinamica exata como referencia
+- Algoritmo genético com duas configurações
+- Programação dinâmica exata como referência
 
-### Configuracoes do AG
+### Configurações do AG
 
-- Configuracao A: populacao 80, 250 geracoes, mutacao 0.02, torneio 3, elitismo 2, penalidade 1000
-- Configuracao B: populacao 120, 320 geracoes, mutacao 0.05, torneio 4, elitismo 4, penalidade 2000
+- Configuração A: população 80, 250 gerações, mutação 0.02, torneio 3, elitismo 2, penalidade 1000
+- Configuração B: população 120, 320 gerações, mutação 0.05, torneio 4, elitismo 4, penalidade 2000
 
 ### Resumo dos resultados
 
@@ -95,20 +95,21 @@ As comparacoes cresceram de forma quadratica, como esperado para a DP $O(n^2)$. 
 - GA A: 9147
 - GA B: 7363
 
-### Analise
+### Análise
 
-O guloso por razao foi o melhor dos dois gulosos em todas as instancias. O guloso por valor absoluto funcionou bem nas instancias pequenas, mas ficou bem abaixo na instância oficial. O AG com a configuracao A alcançou a solucao otima nas tres instancias, enquanto a configuracao B melhorou em relacao aos gulosos, mas nao superou a referencia na instancia oficial. A programacao dinamica forneceu a referencia exata e, para as instancias testadas, teve custo computacional baixo o suficiente para ser viavel.
+O guloso por razão foi melhor que o guloso por valor em todas as instâncias. O guloso por valor absoluto ficou mais distante da referência na instância oficial. O AG com a configuração A alcançou a solução ótima nas três instâncias; a configuração B ficou abaixo do ótimo na instância oficial, mas ainda acima dos gulosos. A programação dinâmica deu a referência exata e foi viável nas instâncias testadas.
 
-### Grafico do AG
+### Gráfico do AG
 
-Foram gerados graficos de geracao x melhor aptidao em `Q3/outputs` para cada instância.
+Foram gerados gráficos de geração x melhor aptidão em `Q3/outputs` para cada instância.
 
-## Reflexao final
+## Reflexão final
 
-- A questao que exigiu mais esforco foi a Mochila 0/1, porque envolveu varias tecnicas, comparacao entre abordagens e coleta de metricas.
-- O resultado empirico mais marcante foi a diferenca entre o guloso por valor absoluto e o guloso por razao na instancia oficial.
-- Eu melhoraria principalmente o algoritmo genetico, testando mais configuracoes e adicionando uma estrategia de reparo mais refinada para individuos inviaveis.
+- A questão que exigiu mais esforço foi a Mochila 0/1, porque envolveu várias técnicas, comparação entre abordagens e coleta de métricas.
+- O resultado empírico mais marcante foi a diferença entre o guloso por valor absoluto e o guloso por razão na instância oficial.
+- Eu melhoraria principalmente o algoritmo genético, testando mais configurações e adicionando uma estratégia de reparo mais refinada para indivíduos inviáveis.
 
 ## Uso de IA
 
-Foi utilizado apoio de IA para organizar a estrutura do projeto, acelerar a implementacao inicial em Java e revisar a consistencia dos resultados.
+Foi utilizado apoio de IA para os scripts de gráfico e para montar as tabelas com os testes.
+
