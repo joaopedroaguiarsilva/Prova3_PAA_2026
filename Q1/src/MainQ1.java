@@ -9,7 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class Main {
+public class MainQ1 {
 
     private static final int S = 466473;
 
@@ -23,10 +23,7 @@ public class Main {
 
             criarPastaResultados();
 
-            try (PrintWriter csv = new PrintWriter(
-                    new OutputStreamWriter(
-                            new FileOutputStream(CAMINHO_CSV.toFile()),
-                            StandardCharsets.UTF_8))) {
+            try (PrintWriter csv = new PrintWriter(new OutputStreamWriter(new FileOutputStream(CAMINHO_CSV.toFile()), StandardCharsets.UTF_8))) {
 
                 escreverCabecalhoCSV(csv);
 
@@ -38,11 +35,8 @@ public class Main {
 
                 executarTeste8x8(csv);
 
-                System.out.println("Arquivo CSV gerado em: "
-                        + CAMINHO_CSV.toAbsolutePath());
-
+                System.out.println("Arquivo CSV gerado em: " + CAMINHO_CSV.toAbsolutePath());
             }
-
         } catch (IOException e) {
             System.out.println("Erro ao gerar o arquivo CSV.");
             e.printStackTrace();
@@ -97,14 +91,7 @@ public class Main {
         int linha = (S % n) + 1;
         int coluna = ((S / n) % n) + 1;
 
-        executarTesteComCasa(
-                n,
-                linha,
-                coluna,
-                heuristica,
-                nomeTeste,
-                csv
-        );
+        executarTesteComCasa(n, linha, coluna, heuristica, nomeTeste, csv);
     }
 
     private static void executarTeste8x8(PrintWriter csv) {
@@ -128,14 +115,7 @@ public class Main {
             }
         }
 
-        executarTesteComCasa(
-                8,
-                linha2,
-                coluna2,
-                true,
-                "segundo_8x8",
-                csv
-        );
+        executarTesteComCasa(8, linha2, coluna2, true, "segundo_8x8", csv);
     }
 
     private static void executarTesteComCasa(int n, int linha, int coluna, boolean heuristica, String nomeTeste, PrintWriter csv) {
@@ -156,18 +136,15 @@ public class Main {
         System.out.println("=========================================");
         System.out.println("Tabuleiro: " + n + " x " + n);
         System.out.println("Casa inicial: (" + linha + ", " + coluna + ")");
-        System.out.println("Estratégia: "
-                + (heuristica
-                ? "Warnsdorff"
-                : "Backtracking puro"));
+        System.out.println("Estratégia: " + (heuristica ? "Warnsdorff" : "Backtracking puro"));
 
-        System.out.println("Solução encontrada: "
-                + (encontrou ? "SIM" : "NÃO"));
+        System.out.println("Solução encontrada: " + (encontrou ? "SIM" : "NÃO"));
 
         System.out.println("Chamadas recursivas: " + e.chamadas);
         System.out.println("Tentativas: " + e.tentativas);
         System.out.println("Backtracks: " + e.backtracks);
         System.out.println("Tempo: " + e.tempo + " ms");
+        System.out.println("Tempo esgotado: " + (e.tempoEsgotado ? "SIM" : "NÃO"));
 
         if (encontrou) {
             passeio.imprimirTabuleiro();

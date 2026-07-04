@@ -1,4 +1,5 @@
 package src;
+
 public class Estatisticas {
 
     public long chamadas;
@@ -6,4 +7,5 @@ public class Estatisticas {
     public long backtracks;
     public long tempo;
 
+    public boolean tempoEsgotado;
 }

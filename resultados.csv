@@ -1,0 +1,29 @@
+questao,S,experimento,n,teste,linha,coluna,casa_inicial,estrategia,solucao,chamadas,tentativas,backtracks,comparacoes,atualizacoes,tamanho_subsequencia,instancia,capacidade,metodo,configuracao,valor,peso,itens,avaliacoes,cruzamentos,mutacoes,geracoes,Vref,gap,gap_percentual,tempo_ms,observacoes
+Q1,466473,Passeio do Cavalo n=5,5,principal,4,5,"(4,5)",Backtracking puro,NAO,1829421,1829420,1829420,,,,,,,,,,,,,,,,,,129,
+Q1,466473,Passeio do Cavalo n=5,5,principal,4,5,"(4,5)",Warnsdorff,NAO,1829421,1829420,1829420,,,,,,,,,,,,,,,,,,259,
+Q1,466473,Passeio do Cavalo n=6,6,principal,4,4,"(4,4)",Backtracking puro,SIM,577655,577654,577619,,,,,,,,,,,,,,,,,,45,
+Q1,466473,Passeio do Cavalo n=6,6,principal,4,4,"(4,4)",Warnsdorff,SIM,63,62,27,,,,,,,,,,,,,,,,,,0,
+Q1,466473,Passeio do Cavalo n=8,8,principal,2,6,"(2,6)",Backtracking puro,NAO,8226522581,8226522580,8226522540,,,,,,,,,,,,,,,,,,600000,Execução interrompida ao atingir o limite de 10 minutos.
+Q1,466473,Passeio do Cavalo n=8,8,principal,2,6,"(2,6)",Warnsdorff,SIM,64,63,0,,,,,,,,,,,,,,,,,,0,
+Q1,466473,Passeio do Cavalo n=8,8,segundo_8x8,1,8,"(1,8)",Warnsdorff,SIM,64,63,0,,,,,,,,,,,,,,,,,,0,
+Q2,466473,Subsequência crescente n=100,100,,,,,,,,,,4950,193,16,,,,,,,,,,,,,,,0,Sequência gerada com a semente S.
+Q2,466473,Subsequência crescente n=250,250,,,,,,,,,,31125,509,28,,,,,,,,,,,,,,,0,Sequência gerada com a semente S.
+Q2,466473,Subsequência crescente n=500,500,,,,,,,,,,124750,1197,43,,,,,,,,,,,,,,,1,Sequência gerada com a semente S.
+Q2,466473,Subsequência crescente n=1000,1000,,,,,,,,,,499500,2599,58,,,,,,,,,,,,,,,2,Sequência gerada com a semente S.
+Q2,466473,Subsequência crescente n=2000,2000,,,,,,,,,,1999000,5896,84,,,,,,,,,,,,,,,5,Sequência gerada com a semente S.
+Q2,466473,Subsequência crescente n=4000,4000,,,,,,,,,,7998000,13018,121,,,,,,,,,,,,,,,28,Sequência gerada com a semente S.
+Q3,466473,Mochila 0/1 - gerada_20,20,,,,,,,,,,20,,,gerada_20,504,Guloso razão,-,4347,502,17 12 16 2 15 14 8 20 11 7 18 1 9,0,0,0,0,4347,0,0.0000,4,Resultados detalhados da Q3.
+Q3,466473,Mochila 0/1 - gerada_20,20,,,,,,,,,,20,,,gerada_20,504,Guloso valor,-,4266,503,14 12 16 17 2 11 15 7 8 9 20 6,0,0,0,0,4347,81,1.8634,1,Resultados detalhados da Q3.
+Q3,466473,Mochila 0/1 - gerada_20,20,,,,,,,,,,0,,,gerada_20,504,Algoritmo Genético,config1,4347,502,1 2 7 8 9 11 12 14 15 16 17 18 20,30100,15000,12071,300,4347,0,0.0000,54,Resultados detalhados da Q3.
+Q3,466473,Mochila 0/1 - gerada_20,20,,,,,,,,,,0,,,gerada_20,504,Algoritmo Genético,config2,4347,502,1 2 7 8 9 11 12 14 15 16 17 18 20,100200,50000,99447,500,4347,0,0.0000,50,Resultados detalhados da Q3.
+Q3,466473,Mochila 0/1 - gerada_20,20,,,,,,,,,,9091,,,gerada_20,504,Programação Dinâmica,ótima,4347,502,1 2 7 8 9 11 12 14 15 16 17 18 20,10100,0,0,0,4347,0,0.0000,1,Resultados detalhados da Q3.
+Q3,466473,Mochila 0/1 - gerada_50,50,,,,,,,,,,50,,,gerada_50,1057,Guloso razão,-,9391,1051,41 32 45 2 9 34 4 22 25 14 49 27 26 10 15 33 17 38 3 42 50 37 18 21 48 47 1 35 29 40 24 28 8,0,0,0,0,9392,1,0.0106,0,Resultados detalhados da Q3.
+Q3,466473,Mochila 0/1 - gerada_50,50,,,,,,,,,,50,,,gerada_50,1057,Guloso valor,-,8563,1057,35 26 37 22 10 4 42 50 48 47 41 29 9 24 3 15 16 27 6 14 17 25 34 33,0,0,0,0,9392,829,8.8267,0,Resultados detalhados da Q3.
+Q3,466473,Mochila 0/1 - gerada_50,50,,,,,,,,,,0,,,gerada_50,1057,Algoritmo Genético,config1,9392,1051,1 2 3 4 5 9 10 14 15 17 18 21 22 24 25 26 27 29 32 33 34 35 37 38 40 41 42 45 47 48 49 50,30100,15000,29908,300,9392,0,0.0000,26,Resultados detalhados da Q3.
+Q3,466473,Mochila 0/1 - gerada_50,50,,,,,,,,,,0,,,gerada_50,1057,Algoritmo Genético,config2,9367,1056,2 3 4 5 9 10 14 15 17 18 21 22 24 25 26 27 28 29 32 33 34 35 36 37 38 40 41 42 45 47 48 49 50,100200,50000,248906,500,9392,25,0.2662,79,Resultados detalhados da Q3.
+Q3,466473,Mochila 0/1 - gerada_50,50,,,,,,,,,,50786,,,gerada_50,1057,Programação Dinâmica,ótima,9392,1051,1 2 3 4 5 9 10 14 15 17 18 21 22 24 25 26 27 29 32 33 34 35 37 38 40 41 42 45 47 48 49 50,52900,0,0,0,9392,0,0.0000,7,Resultados detalhados da Q3.
+Q3,466473,Mochila 0/1 - knapPI_1_100_1000_1.txt,100,,,,,,,,,,100,,,knapPI_1_100_1000_1.txt,995,Guloso razão,-,8817,908,11 49 54 38 7 24 33 61 39 14 26 13,0,0,0,0,9147,330,3.6077,0,Resultados detalhados da Q3.
+Q3,466473,Mochila 0/1 - knapPI_1_100_1000_1.txt,100,,,,,,,,,,100,,,knapPI_1_100_1000_1.txt,995,Guloso valor,-,2983,987,31 19 4,0,0,0,0,9147,6164,67.3882,0,Resultados detalhados da Q3.
+Q3,466473,Mochila 0/1 - knapPI_1_100_1000_1.txt,100,,,,,,,,,,0,,,knapPI_1_100_1000_1.txt,995,Algoritmo Genético,config1,8692,992,7 11 14 24 28 31 33 38 39 49 54 61,30100,15000,59351,300,9147,455,4.9743,40,Resultados detalhados da Q3.
+Q3,466473,Mochila 0/1 - knapPI_1_100_1000_1.txt,100,,,,,,,,,,0,,,knapPI_1_100_1000_1.txt,995,Algoritmo Genético,config2,6457,995,3 7 10 11 14 33 36 38 49 54,100200,50000,498596,500,9147,2690,29.4085,131,Resultados detalhados da Q3.
+Q3,466473,Mochila 0/1 - knapPI_1_100_1000_1.txt,100,,,,,,,,,,49222,,,knapPI_1_100_1000_1.txt,995,Programação Dinâmica,ótima,9147,985,7 11 14 24 26 31 33 38 39 49 54 61,99600,0,0,0,9147,0,0.0000,0,Resultados detalhados da Q3.
